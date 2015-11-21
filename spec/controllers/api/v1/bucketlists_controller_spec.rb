@@ -29,22 +29,6 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
       expect(assigns(:bucketlist)).to eq(bucketlist)
     end
   end
-
-  describe "GET #new" do
-    it "assigns a new bucketlist as @bucketlist" do
-      get :new, {}, valid_session
-      expect(assigns(:bucketlist)).to be_a_new(Bucketlist)
-    end
-  end
-
-  describe "GET #edit" do
-    it "assigns the requested bucketlist as @bucketlist" do
-      bucketlist = Bucketlist.create! valid_attributes
-      get :edit, {id: bucketlist.to_param}, valid_session
-      expect(assigns(:bucketlist)).to eq(bucketlist)
-    end
-  end
-
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Bucketlist" do

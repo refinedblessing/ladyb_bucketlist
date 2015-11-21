@@ -14,5 +14,13 @@ group :development, :test do
   gem "rspec-rails"
   gem "pry"
   gem "spring"
-  gem "factory_girl"
+  gem "factory_girl_rails"
+  gem "database_cleaner"
+  gem "codeclimate-test-reporter", require: nil
+end
+
+group :production do
+  gem "pg"
+  gem "rails_12factor"
+  gem "puma", "2.11.1"
 end

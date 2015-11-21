@@ -1,4 +1,7 @@
 ## Ladyb BucketList API
+[![Code Climate](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist/badges/gpa.svg)](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist)
+[![Test Coverage](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist/badges/coverage.svg)](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist/coverage)
+[![Issue Count](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist/badges/issue_count.svg)](https://codeclimate.com/github/andela-bebowe/ladyb_bucketlist)
 
 Rails API for a bucket list service. Specification for the API is shown below.
 

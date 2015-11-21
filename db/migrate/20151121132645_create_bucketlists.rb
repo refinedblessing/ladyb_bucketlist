@@ -6,5 +6,6 @@ class CreateBucketlists < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :bucketlists, :created_by
   end
 end
