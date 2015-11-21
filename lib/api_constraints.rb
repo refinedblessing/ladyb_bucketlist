@@ -6,6 +6,6 @@ class ApiConstraints
 
   def matches?(req)
     @default || req.headers["Accept"].
-    include?("application/vnd.ladyb_bucketlist.v#{@version}")
+      include?("application/vnd.ladyb_bucketlist.v#{@version}")
   end
 end

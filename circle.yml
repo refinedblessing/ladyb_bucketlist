@@ -1,0 +1,11 @@
+deployment:
+  staging:
+    branch: master
+    heroku:
+      appname: ladybucketlist
+machine:
+  ruby:
+    version: 2.2.3
+test:
+  override:
+    - bundle exec rake spec
