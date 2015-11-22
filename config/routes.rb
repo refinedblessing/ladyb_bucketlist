@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  use_doorkeeper
   namespace :api,
-  defaults: { format: :json }, constraints: { subdomain: "api" }, path: "/"  do
+  defaults: { format: :json }, constraints: {}, path: "/"  do
     scope module: :v1,
     constraints: ApiConstraints.new(version: 1, default: true) do
       resources :bucketlists, except: [:new, :edit]
+      get "/begin/callback", to: "bucketlists#begin"
       post "/auth/login", to: "auth#login"
+      get "/auth/visit_login", to: "auth#visit_login"
       get "/auth/logout", to: "auth#logout"
       post "/auth/signup", to: "auth#signup"
     end
