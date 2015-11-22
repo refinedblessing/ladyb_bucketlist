@@ -47,10 +47,6 @@ GEM
     database_cleaner (1.5.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    doorkeeper (3.0.1)
-      railties (>= 3.2)
-    doorkeeper-jwt (0.1.4)
-      jwt (~> 1.4, >= 1.4.1)
     erubis (2.7.0)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -160,8 +156,6 @@ DEPENDENCIES
   bcrypt
   codeclimate-test-reporter
   database_cleaner
-  doorkeeper
-  doorkeeper-jwt
   factory_girl_rails
   jwt
   pg

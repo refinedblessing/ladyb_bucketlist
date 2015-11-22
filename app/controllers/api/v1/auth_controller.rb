@@ -8,19 +8,23 @@ class Api::V1::AuthController < ApplicationController
       render json: user.errors.full_messages, status: 401
     end
   end
+
   def login
     user = User.find_by_email(params[:email].downcase)
     if user && user.authenticate(params[:password])
-      render json: { message: "You are logged in." }, status: 200
-      session[:user_id] = user.id
+      render json: { token: user.generate_auth_token }
     else
       render json:
-      { message: "You must have entered an incorrect Email or Password" },
+      { error: "You entered an incorrect Email or Password" },
       status: 417
     end
   end
+
   def logout
+    session[:user_id] = nil
+    render json: { message: "You are logged out." }, status: 200
   end
+
   def destroy
     user = User.destroy(params[:id])
     head 204

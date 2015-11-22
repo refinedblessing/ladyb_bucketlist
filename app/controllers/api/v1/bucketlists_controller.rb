@@ -1,10 +1,10 @@
 class Api::V1::BucketlistsController < ApplicationController
+  before_action :authenticate
   before_action :set_bucketlist, only: [:show, :update, :destroy]
 
   # GET /bucketlists.json
   def index
-    @bucketlists = Bucketlist.all
-
+    @bucketlists = current_user.bucketlists
     render json: @bucketlists
   end
 
@@ -15,9 +15,10 @@ class Api::V1::BucketlistsController < ApplicationController
 
   # POST /bucketlists.json
   def create
-    @bucketlist = Bucketlist.new(bucketlist_params)
+    @bucketlist = Bucketlist.create(name: params[:name],
+    created_by: current_user.id)
     if @bucketlist.save
-      render json: @bucketlist, status: :created, location: @bucketlist
+      render json: @bucketlist, status: :created
     else
       render json: @bucketlist.errors, status: :unprocessable_entity
     end
@@ -36,16 +37,16 @@ class Api::V1::BucketlistsController < ApplicationController
   # DELETE /bucketlists/1.json
   def destroy
     @bucketlist.destroy
-
     head :no_content
   end
 
   private
     def set_bucketlist
-      @bucketlist = Bucketlist.find(params[:id])
-    end
-
-    def bucketlist_params
-      params.require(:bucketlist).permit(:name, :created_by)
+      @bucketlist = Bucketlist.find_by_id(params[:id])
+      if @bucketlist.blank?
+        render json:
+        { error: "Bucket list with id:#{params[:id]} does not exist"},
+          status: :unprocessable_entity
+      end
     end
 end
