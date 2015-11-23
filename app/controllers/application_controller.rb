@@ -1,3 +1,4 @@
+# Controller from which all other controllers inherit from.
 class ApplicationController < ActionController::API
   include ActionController::Serialization
 
@@ -16,21 +17,22 @@ class ApplicationController < ActionController::API
   helper_method :current_user
 
   private
-    def authenticate
-      if decoded_auth_token["exp"] <= Time.now.to_i
-        fail AuthenticationTimeoutError
-      elsif !current_user
-        fail NotAuthenticatedError
-      end
+
+  def authenticate
+    if decoded_auth_token["exp"] <= Time.now.to_i
+      fail AuthenticationTimeoutError
+    elsif !current_user
+      fail NotAuthenticatedError
     end
-    def decoded_auth_token
-      @decoded_auth_token ||= AuthToken.decode(http_auth_header)
+  end
+
+  def decoded_auth_token
+    @decoded_auth_token ||= AuthToken.decode(http_auth_header)
+  end
+
+  def http_auth_header
+    if request.headers["Authorization"].present?
+      return request.headers["Authorization"].split(" ").last
     end
-    def http_auth_header
-      if request.headers["Authorization"].present?
-        return request.headers["Authorization"].split(" ").last
-      else
-        nil
-      end
-    end
+  end
 end

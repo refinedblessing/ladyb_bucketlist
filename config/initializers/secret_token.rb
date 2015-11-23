@@ -16,4 +16,6 @@
 # Using secret_token for rails3 compatibility. Change to secret_key_base
 # to avoid deprecation warning.
 # Can be safely removed in a rails3 api-only application.
-LadybBucketlist::Application.config.secret_token = "cd078dddd9f671b42bc11a6c01919a1f46095e690e21efb1ff277251a718b2ae4f7e47634e7f5010b417fcbaabf42d2b811bb5861b42c26e0281fc5f54ca8a9d"
+LadybBucketlist::Application.config.secret_token = "cd078dddd9f671b42bc11a\
+6c01919a1f46095e690e21efb1ff277251a718b2ae4f7e47634e7f5010b417fcbaabf42d2b\
+811bb5861b42c26e0281fc5f54ca8a9d"
