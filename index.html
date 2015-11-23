@@ -310,401 +310,80 @@ TvFXMeuCkZPcaEBLqvgPBhCuiZo8+sAAAAAASUVORK5CYII=
     </div>
     <div class="information">
       <div class="infobox">
-        7 files inspected,
-        31 offenses detected
+        36 files inspected,
+        no offenses detected
       </div>
     </div>
     <div id="offenses">
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/controllers/api/v1/auth_controller.rb - 5 offenses</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #4</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Missing top-level class documentation comment.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">class</span> AuthController &lt; ApplicationController</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #21</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>          { error: <span class="highlight convention">&quot;You entered an incorrect Email or Password&quot;</span> }, status: 417</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #26</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>        render json: { message: <span class="highlight convention">&quot;You are logged out.&quot;</span> }, status: 200</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #36</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Inconsistent indentation detected.</span>
-            </div>
-            
-            <pre><code>        <span class="highlight convention">def password</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #39</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Redundant <code>else</code>-clause.</span>
-            </div>
-            
-            <pre><code>          <span class="highlight convention">else</span></code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
       
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/controllers/api/v1/bucketlists_controller.rb - 3 offenses</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #4</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Missing top-level class documentation comment.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">class</span> BucketlistsController &lt; ApplicationController</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #48</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Inconsistent indentation detected.</span>
-            </div>
-            
-            <pre><code>        <span class="highlight convention">def set_bucketlist</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #50</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Use a guard clause instead of wrapping the code inside a conditional expression.</span>
-            </div>
-            
-            <pre><code>          <span class="highlight convention">if</span> @bucketlist.blank?</code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
       
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/controllers/application_controller.rb - 14 offenses</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #1</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Missing top-level class documentation comment.</span>
-            </div>
-            
-            <pre><code><span class="highlight convention">class</span> ApplicationController &lt; ActionController::API</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #6</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>    render json: { error: <span class="highlight convention">&quot;Not Authorized&quot;</span> }, status: :unauthorized</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #9</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>    render json: { error: <span class="highlight convention">&quot;Token is expired&quot;</span> }, status: 419</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #13</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Use a guard clause instead of wrapping the code inside a conditional expression.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">if</span> decoded_auth_token</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #14</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>      @current_user ||= User.find(decoded_auth_token[<span class="highlight convention">&quot;user_id&quot;</span>])</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #21</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Inconsistent indentation detected.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">def authenticate</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #22</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>      if decoded_auth_token[<span class="highlight convention">&quot;exp&quot;</span>] &lt;= Time.now.to_i</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #29</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Inconsistent indentation detected.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">def decoded_auth_token</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #32</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Trailing whitespace detected.</span>
-            </div>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #33</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Inconsistent indentation detected.</span>
-            </div>
-            
-            <pre><code>    <span class="highlight convention">def http_auth_header</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #34</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>      if request.headers[<span class="highlight convention">&quot;Authorization&quot;</span>].present?</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #35</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>        return request.headers[<span class="highlight convention">&quot;Authorization&quot;</span>].split(&quot; &quot;).last</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #35</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>        return request.headers[&quot;Authorization&quot;].split(<span class="highlight convention">&quot; &quot;</span>).last</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #36</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Redundant <code>else</code>-clause.</span>
-            </div>
-            
-            <pre><code>      <span class="highlight convention">else</span></code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
       
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/models/bucketlist.rb - 1 offense</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #3</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>  belongs_to :user, foreign_key: :created_by, class_name: <span class="highlight convention">&quot;User&quot;</span></code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
       
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/models/user.rb - 5 offenses</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #6</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>  has_many :bucketlists, foreign_key: :created_by, class_name: <span class="highlight convention">&quot;Bucketlist&quot;</span>,</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #7</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Align the elements of a hash literal if they span more than one line.</span>
-            </div>
-            
-            <pre><code>           <span class="highlight convention">dependent: :destroy</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #13</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Align the elements of a hash literal if they span more than one line.</span>
-            </div>
-            
-            <pre><code>            <span class="highlight convention">format: { with: VALID_EMAIL_REGEX }</span></code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #16</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Redundant <code>self</code> detected.</span>
-            </div>
-            
-            <pre><code>    payload = { user_id: <span class="highlight convention">self.id</span>, email: self.email }</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #16</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Redundant <code>self</code> detected.</span>
-            </div>
-            
-            <pre><code>    payload = { user_id: self.id, email: <span class="highlight convention">self.email</span> }</code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
       
       
       
-      <div class="offense-box">
-        <div class="box-title"><h3>app/serializers/bucketlist_serializer.rb - 3 offenses</h3></div>
-        <div class="offense-reports">
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #6</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>    object.created_at.strftime(<span class="highlight convention">&quot;%B %-d, %Y %I:%M %p&quot;</span>)</code></pre>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #8</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Trailing whitespace detected.</span>
-            </div>
-            
-          </div>
-          
-          <div class="report">
-            <div class="meta">
-              <span class="location">Line #10</span> –
-              <span class="severity convention">convention:</span>
-              <span class="message">Prefer single-quoted strings when you don't need string interpolation or special symbols.</span>
-            </div>
-            
-            <pre><code>    object.updated_at.strftime(<span class="highlight convention">&quot;%B %-d, %Y %I:%M %p&quot;</span>)</code></pre>
-            
-          </div>
-          
-        </div>
-      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       
       

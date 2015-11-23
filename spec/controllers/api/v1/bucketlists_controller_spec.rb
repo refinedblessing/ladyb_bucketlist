@@ -59,20 +59,23 @@
 #
 #       it "updates the requested bucketlist" do
 #         bucketlist = Bucketlist.create! valid_attributes
-#         put :update, {id: bucketlist.to_param, bucketlist: new_attributes}, valid_session
+#         put :update, {id: bucketlist.to_param, bucketlist: new_attributes},
+#         valid_session
 #         bucketlist.reload
 #         expect(bucketlist.name).to eq "bucket"
 #       end
 #
 #       it "assigns the requested bucketlist as @bucketlist" do
 #         bucketlist = Bucketlist.create! valid_attributes
-#         put :update, {id: bucketlist.to_param, bucketlist: valid_attributes}, valid_session
+#         put :update, {id: bucketlist.to_param, bucketlist: valid_attributes},
+#         valid_session
 #         expect(assigns(:bucketlist)).to eq(bucketlist)
 #       end
 #
 #       it "redirects to the bucketlist" do
 #         bucketlist = Bucketlist.create! valid_attributes
-#         put :update, {id: bucketlist.to_param, bucketlist: valid_attributes}, valid_session
+#         put :update, {id: bucketlist.to_param, bucketlist: valid_attributes},
+#         valid_session
 #         expect(response).to have_http_status 204
 #       end
 #     end
@@ -80,7 +83,9 @@
 #     context "with invalid params" do
 #       it "assigns the bucketlist as @bucketlist" do
 #         bucketlist = Bucketlist.create! valid_attributes
-#         put :update, {id: bucketlist.to_param, bucketlist: invalid_attributes}, valid_session
+#         put :update,
+#         {id: bucketlist.to_param, bucketlist: invalid_attributes},
+#         valid_session
 #         expect(assigns(:bucketlist)).to eq(bucketlist)
 #       end
 #     end

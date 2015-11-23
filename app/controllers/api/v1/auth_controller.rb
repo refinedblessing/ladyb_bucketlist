@@ -33,13 +33,11 @@ module Api
 
       private
 
-        def password
-          if !params[:password].blank?
-            BCrypt::Password.create(params[:password], cost: 5)
-          else
-            nil
-          end
+      def password
+        unless params[:password].blank?
+          BCrypt::Password.create(params[:password], cost: 5)
         end
+      end
     end
   end
 end

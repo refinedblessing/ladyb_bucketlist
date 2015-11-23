@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  namespace :api,
-  defaults: { format: :json }, constraints: {}, path: "/"  do
+  namespace :api, defaults: { format: :json }, constraints: {}, path: "/" do
     scope module: :v1,
-    constraints: ApiConstraints.new(version: 1, default: true) do
+          constraints: ApiConstraints.new(version: 1, default: true) do
       resources :bucketlists, except: [:new, :edit]
       get "/begin/callback", to: "bucketlists#begin"
       post "/auth/login", to: "auth#login"
