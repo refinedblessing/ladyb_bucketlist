@@ -45,14 +45,14 @@ module Api
 
       private
 
-        def set_bucketlist
-          @bucketlist = Bucketlist.find_by_id(params[:id])
-          if @bucketlist.blank?
-            render json:
-            { error: "Bucket list with id:#{params[:id]} does not exist" },
-                   status: :unprocessable_entity
-          end
+      def set_bucketlist
+        @bucketlist = Bucketlist.find_by_id(params[:id])
+        if @bucketlist.blank?
+          render json:
+          { error: "Bucket list with id:#{params[:id]} does not exist" },
+                 status: :unprocessable_entity
         end
+      end
     end
   end
 end

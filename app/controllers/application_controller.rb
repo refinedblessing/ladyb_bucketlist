@@ -18,23 +18,21 @@ class ApplicationController < ActionController::API
 
   private
 
-    def authenticate
-      if decoded_auth_token["exp"] <= Time.now.to_i
-        fail AuthenticationTimeoutError
-      elsif !current_user
-        fail NotAuthenticatedError
-      end
+  def authenticate
+    if decoded_auth_token["exp"] <= Time.now.to_i
+      fail AuthenticationTimeoutError
+    elsif !current_user
+      fail NotAuthenticatedError
     end
+  end
 
-    def decoded_auth_token
-      @decoded_auth_token ||= AuthToken.decode(http_auth_header)
-    end
+  def decoded_auth_token
+    @decoded_auth_token ||= AuthToken.decode(http_auth_header)
+  end
 
-    def http_auth_header
-      if request.headers["Authorization"].present?
-        return request.headers["Authorization"].split(" ").last
-      else
-        nil
-      end
+  def http_auth_header
+    if request.headers["Authorization"].present?
+      return request.headers["Authorization"].split(" ").last
     end
+  end
 end

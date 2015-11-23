@@ -6,7 +6,7 @@ if Rails.env.production?
   abort("The Rails environment is running in production mode!")
 end
 require "codeclimate-test-reporter"
-  CodeClimate::TestReporter.start
+CodeClimate::TestReporter.start
 require "spec_helper"
 require "rspec/rails"
 require "factory_girl_rails"
