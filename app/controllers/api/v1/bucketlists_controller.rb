@@ -8,6 +8,7 @@ module Api
       # GET /bucketlists.json
       def index
         @bucketlists = current_user.bucketlists
+        @bucketlists = @bucketlists.search(params[:q]) if params[:q]
         render json: @bucketlists
       end
 
@@ -31,7 +32,7 @@ module Api
       def update
         @bucketlist = Bucketlist.find(params[:id])
         if @bucketlist.update(bucketlist_params)
-          head :no_content
+          render json: @bucketlist, status: 200
         else
           render json: @bucketlist.errors, status: :unprocessable_entity
         end
@@ -52,6 +53,10 @@ module Api
           { error: "Bucket list with id:#{params[:id]} does not exist" },
                  status: :unprocessable_entity
         end
+      end
+
+      def bucketlist_params
+        params.require(:bucketlist).permit(:name)
       end
     end
   end

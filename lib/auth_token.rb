@@ -5,10 +5,11 @@ class AuthToken
   end
 
   def self.decode(token)
-    decoded = JWT.decode token,
-                         Rails.application.secrets.secret_key_base,
-                         true, algorithm: "HS512"
-    decoded[0]
+    JWT.decode(
+      token,
+      Rails.application.secrets.secret_key_base,
+      true, algorithm: "HS512"
+    )[0]
   rescue
     nil
   end

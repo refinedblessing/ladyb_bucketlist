@@ -3,10 +3,10 @@ class ApplicationController < ActionController::API
   include ActionController::Serialization
 
   rescue_from NotAuthenticatedError do
-    render json: { error: "Not Authorized" }, status: :unauthorized
+    render json: { error: "You are not Authorized" }, status: :unauthorized
   end
   rescue_from AuthenticationTimeoutError do
-    render json: { error: "Token is expired" }, status: 419
+    render json: { error: "Token has expired" }, status: 419
   end
 
   def current_user
@@ -19,10 +19,12 @@ class ApplicationController < ActionController::API
   private
 
   def authenticate
-    if decoded_auth_token["exp"] <= Time.now.to_i
-      fail AuthenticationTimeoutError
-    elsif !current_user
+    decoded = decoded_auth_token
+    user = current_user
+    if !user || !(user.auth_token) || !decoded
       fail NotAuthenticatedError
+    elsif decoded["exp"] <= Time.now.to_i
+      fail AuthenticationTimeoutError
     end
   end
 
