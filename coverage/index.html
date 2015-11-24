@@ -14,14 +14,14 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-24T19:59:12+01:00">2015-11-24T19:59:12+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-24T21:57:22+01:00">2015-11-24T21:57:22+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">98.75%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -33,8 +33,8 @@
   <div>
     <b>12</b> files in total.
     <b>160</b> relevant lines. 
-    <span class="green"><b>158</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <span class="green"><b>160</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -82,11 +82,11 @@
       
       <tr>
         <td class="strong"><a href="#b6fdf208cb2d639947f42379faff3fdf80c5bbcc" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">91.3 %</td>
+        <td class="green strong">100.0 %</td>
         <td>40</td>
         <td>23</td>
-        <td>21</td>
-        <td>2</td>
+        <td>23</td>
+        <td>0</td>
         <td>17.6</td>
       </tr>
       
@@ -179,7 +179,7 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">98.21%</span></span>
+    (<span class="covered_percent"><span class="green">100.0%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
@@ -191,8 +191,8 @@
   <div>
     <b>4</b> files in total.
     <b>112</b> relevant lines. 
-    <span class="green"><b>110</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <span class="green"><b>112</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -240,11 +240,11 @@
       
       <tr>
         <td class="strong"><a href="#b6fdf208cb2d639947f42379faff3fdf80c5bbcc" class="src_link" title="app/controllers/application_controller.rb">app/controllers/application_controller.rb</a></td>
-        <td class="green strong">91.3 %</td>
+        <td class="green strong">100.0 %</td>
         <td>40</td>
         <td>23</td>
-        <td>21</td>
-        <td>2</td>
+        <td>23</td>
+        <td>0</td>
         <td>17.6</td>
       </tr>
       
@@ -1617,11 +1617,11 @@
         <div class="source_table" id="b6fdf208cb2d639947f42379faff3fdf80c5bbcc">
   <div class="header">
     <h3>app/controllers/application_controller.rb</h3>
-    <h4><span class="green">91.3 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>23</b> relevant lines. 
-      <span class="green"><b>21</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <span class="green"><b>23</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -1658,8 +1658,8 @@
           <code class="ruby">  rescue_from NotAuthenticatedError do</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="6">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
           
           <code class="ruby">    render json: { error: &quot;You are not Authorized&quot; }, status: :unauthorized</code>
         </li>
@@ -1676,8 +1676,8 @@
           <code class="ruby">  rescue_from AuthenticationTimeoutError do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
-          
+        <li class="covered" data-hits="3" data-linenumber="9">
+          <span class="hits">3</span>
           
           <code class="ruby">    render json: { error: &quot;Token has expired&quot; }, status: 419</code>
         </li>
@@ -1769,25 +1769,25 @@
         <li class="covered" data-hits="24" data-linenumber="24">
           <span class="hits">24</span>
           
-          <code class="ruby">    if !user || !(user.auth_token) || !decoded</code>
+          <code class="ruby">    if !decoded || decoded[&quot;exp&quot;] &lt;= Time.now.to_i</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="25">
-          <span class="hits">4</span>
-          
-          <code class="ruby">      fail NotAuthenticatedError</code>
-        </li>
-      
-        <li class="covered" data-hits="20" data-linenumber="26">
-          <span class="hits">20</span>
-          
-          <code class="ruby">    elsif decoded[&quot;exp&quot;] &lt;= Time.now.to_i</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
           
           <code class="ruby">      fail AuthenticationTimeoutError</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="26">
+          <span class="hits">21</span>
+          
+          <code class="ruby">    elsif !user || !(user.auth_token)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      fail NotAuthenticatedError</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
