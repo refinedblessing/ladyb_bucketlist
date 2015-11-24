@@ -21,10 +21,10 @@ class ApplicationController < ActionController::API
   def authenticate
     decoded = decoded_auth_token
     user = current_user
-    if !user || !(user.auth_token) || !decoded
-      fail NotAuthenticatedError
-    elsif decoded["exp"] <= Time.now.to_i
+    if !decoded || decoded["exp"] <= Time.now.to_i
       fail AuthenticationTimeoutError
+    elsif !user || !(user.auth_token)
+      fail NotAuthenticatedError
     end
   end
 

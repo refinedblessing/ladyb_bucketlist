@@ -166,6 +166,7 @@ DEPENDENCIES
   rails-api
   rails_12factor
   rspec-rails
+  simplecov
   spring
   sqlite3
 
