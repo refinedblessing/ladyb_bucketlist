@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get "/auth/visit_login", to: "auth#visit_login"
       get "/auth/logout", to: "auth#logout"
       post "/auth/signup", to: "auth#signup"
+      get "/auth/destroy", to: "auth#destroy"
     end
   end
 end
