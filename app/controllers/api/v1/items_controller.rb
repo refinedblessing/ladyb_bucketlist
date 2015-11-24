@@ -50,9 +50,8 @@ module Api
       def set_item
         @item = Item.find_by_id(params[:id])
         if @item.blank?
-          render json:
-          { error: "Item with id:#{params[:id]} does not exist" },
-                 status: :unprocessable_entity
+          msg = { error: "Item with id:#{params[:id]} does not exist" }
+          render json: msg, status: :unprocessable_entity
         end
       end
 

@@ -6,7 +6,7 @@ module Api
 
       def signup
         @user = User.create(name: params[:name], password_digest: password,
-                            email: params[:email].downcase)
+                            email: params[:email])
         if @user.save
           login
         else
@@ -17,8 +17,8 @@ module Api
       def login
         @user = User.find_by_email(params[:email].downcase)
         if @user && @user.authenticate(params[:password])
-          render json: { token: @user.generate_auth_token }
           @user.update_attribute(:auth_token, true)
+          render json: { token: @user.generate_auth_token }
         else
           render json:
           { error: "You entered an incorrect Email or Password" }, status: 417
