@@ -7,8 +7,10 @@ module Api
 
       # GET /bucketlists.json
       def index
+        paginater
         @bucketlists = current_user.bucketlists
         @bucketlists = @bucketlists.search(params[:q]) if params[:q]
+        @bucketlists = @bucketlists.limit(@limit).offset(@offset)
         render json: @bucketlists
       end
 
@@ -56,6 +58,14 @@ module Api
 
       def bucketlist_params
         params.require(:bucketlist).permit(:name)
+      end
+
+      def paginater
+        @limit = params[:limit].to_i
+        @limit = 20 if @limit < 1
+        @page = params[:page].to_i
+        @page = 1 if @page < 1
+        @offset = @limit * (@page - 1)
       end
     end
   end
