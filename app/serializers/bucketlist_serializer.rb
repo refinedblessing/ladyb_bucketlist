@@ -15,6 +15,8 @@ class BucketlistSerializer < ActiveModel::Serializer
   end
 
   def created_by
-    object.user
+    name = object.user.name
+    name = object.user.email if name.nil?
+    name
   end
 end
