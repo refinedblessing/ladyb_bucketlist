@@ -11,12 +11,15 @@ module Api
         @bucketlists = current_user.bucketlists
         @bucketlists = @bucketlists.search(params[:q]) if params[:q]
         @bucketlists = @bucketlists.limit(@limit).offset(@offset)
-        render json: @bucketlists
+        if stale?(etag: @bucketlists.all,
+                  last_modified: @bucketlists.maximum(:updated_at))
+          render json: @bucketlists
+        end
       end
 
       # GET /bucketlists/1.json
       def show
-        render json: @bucketlist
+        render json: @bucketlist if stale? @bucketlist
       end
 
       # POST /bucketlists.json
@@ -49,9 +52,10 @@ module Api
       private
 
       def set_bucketlist
-        @bucketlist = Bucketlist.find_by_id(params[:id])
+        @bucketlist = Bucketlist.where(id: params[:id],
+                                       created_by: current_user.id)[0]
         if @bucketlist.blank?
-          msg = { error: "Bucket list with id:#{params[:id]} does not exist" }
+          msg = { error: "You dont have a bucket list with id:#{params[:id]}" }
           render json: msg, status: :unprocessable_entity
         end
       end

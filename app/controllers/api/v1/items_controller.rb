@@ -9,12 +9,16 @@ module Api
         @items = Item.where(bucketlist_id: params[:bucketlist_id])
         @items = @items.completed if params[:done] == "true"
         @items = @items.uncompleted if params[:done] == "false"
-        render json: @items
+        if stale?(etag: @items.all,
+                  last_modified: @items.maximum(:updated_at))
+          render json: @items
+        end
       end
 
       # GET /items/1.json
       def show
-        render json: @item
+        @item = @item = Item.find(params[:id])
+        render json: @item if stale? @item
       end
 
       # POST /items.json
@@ -48,9 +52,11 @@ module Api
       private
 
       def set_item
-        @item = Item.find_by_id(params[:id])
+        @item = Item.where(bucketlist_id: params[:bucketlist_id],
+                           id: params[:id])[0]
         if @item.blank?
-          msg = { error: "Item with id:#{params[:id]} does not exist" }
+          msg = "Item with id:#{params[:id]} doesnt exist in this bucketlist"
+          msg = { error: msg }
           render json: msg, status: :unprocessable_entity
         end
       end

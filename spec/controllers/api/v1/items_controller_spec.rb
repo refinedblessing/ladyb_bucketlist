@@ -47,7 +47,8 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
     it "shows an error message for wrong item id" do
       get :show, bucketlist_id: @bucketlist.id, id: 15
       expect(json["item"]).to be nil
-      expect(json["error"]).to eq "Item with id:15 does not exist"
+      msg = "Item with id:15 doesnt exist in this bucketlist"
+      expect(json["error"]).to eq msg
     end
 
     it "should not return an item when wrong id is entered" do

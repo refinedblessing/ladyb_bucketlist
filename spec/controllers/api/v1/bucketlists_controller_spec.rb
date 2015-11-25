@@ -38,7 +38,7 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
       get :show, id: 15
       expect(json["bucketlist"]).to be nil
       expect(json).not_to be nil
-      expect(json["error"]).to eq "Bucket list with id:15 does not exist"
+      expect(json["error"]).to eq "You dont have a bucket list with id:15"
     end
 
     it "should not return an item when wrong id is entered" do

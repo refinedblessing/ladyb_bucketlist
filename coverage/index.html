@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-25T09:43:04+01:00">2015-11-25T09:43:04+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-11-26T00:56:24+01:00">2015-11-26T00:56:24+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,15 +25,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         6.06
+         6.13
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>12</b> files in total.
-    <b>170</b> relevant lines. 
-    <span class="green"><b>170</b> lines covered</span> and
+    <b>174</b> relevant lines. 
+    <span class="green"><b>174</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -63,9 +63,9 @@
       <tr>
         <td class="strong"><a href="#8df2c8bfb1a97b8270228e9f48f304f4596e183a" class="src_link" title="app/controllers/api/v1/bucketlists_controller.rb">app/controllers/api/v1/bucketlists_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>72</td>
-        <td>40</td>
-        <td>40</td>
+        <td>76</td>
+        <td>41</td>
+        <td>41</td>
         <td>0</td>
         <td>2.2</td>
       </tr>
@@ -73,9 +73,9 @@
       <tr>
         <td class="strong"><a href="#7d277a2d1a53ea4eb28564fb6abf6debcd13c3a0" class="src_link" title="app/controllers/api/v1/items_controller.rb">app/controllers/api/v1/items_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>63</td>
-        <td>32</td>
-        <td>32</td>
+        <td>69</td>
+        <td>35</td>
+        <td>35</td>
         <td>0</td>
         <td>2.4</td>
       </tr>
@@ -87,7 +87,7 @@
         <td>23</td>
         <td>23</td>
         <td>0</td>
-        <td>17.6</td>
+        <td>18.8</td>
       </tr>
       
       <tr>
@@ -183,15 +183,15 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         5.83
+         5.94
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>4</b> files in total.
-    <b>120</b> relevant lines. 
-    <span class="green"><b>120</b> lines covered</span> and
+    <b>124</b> relevant lines. 
+    <span class="green"><b>124</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -221,9 +221,9 @@
       <tr>
         <td class="strong"><a href="#8df2c8bfb1a97b8270228e9f48f304f4596e183a" class="src_link" title="app/controllers/api/v1/bucketlists_controller.rb">app/controllers/api/v1/bucketlists_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>72</td>
-        <td>40</td>
-        <td>40</td>
+        <td>76</td>
+        <td>41</td>
+        <td>41</td>
         <td>0</td>
         <td>2.2</td>
       </tr>
@@ -231,9 +231,9 @@
       <tr>
         <td class="strong"><a href="#7d277a2d1a53ea4eb28564fb6abf6debcd13c3a0" class="src_link" title="app/controllers/api/v1/items_controller.rb">app/controllers/api/v1/items_controller.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>63</td>
-        <td>32</td>
-        <td>32</td>
+        <td>69</td>
+        <td>35</td>
+        <td>35</td>
         <td>0</td>
         <td>2.4</td>
       </tr>
@@ -245,7 +245,7 @@
         <td>23</td>
         <td>23</td>
         <td>0</td>
-        <td>17.6</td>
+        <td>18.8</td>
       </tr>
       
     </tbody>
@@ -833,8 +833,8 @@
     <h3>app/controllers/api/v1/bucketlists_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>40</b> relevant lines. 
-      <span class="green"><b>40</b> lines covered</span> and
+      <b>41</b> relevant lines. 
+      <span class="green"><b>41</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -923,283 +923,283 @@
         <li class="covered" data-hits="2" data-linenumber="14">
           <span class="hits">2</span>
           
-          <code class="ruby">        render json: @bucketlists</code>
+          <code class="ruby">        if stale?(etag: @bucketlists.all,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">                  last_modified: @bucketlists.maximum(:updated_at))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">          render json: @bucketlists</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">      # GET /bucketlists/1.json</code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="18">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="18">
           
-          <code class="ruby">      def show</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="19">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="19">
           
-          <code class="ruby">        render json: @bucketlist</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
+          <code class="ruby">      # GET /bucketlists/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="21">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def show</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        render json: @bucketlist if stale? @bucketlist</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">      # POST /bucketlists.json</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="23">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      def create</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="24">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        @bucketlist = Bucketlist.create(name: params[:name],</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">                                        created_by: current_user.id)</code>
+          <code class="ruby">      # POST /bucketlists.json</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="26">
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def create</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="27">
           <span class="hits">4</span>
           
-          <code class="ruby">        if @bucketlist.save</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="27">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          render json: @bucketlist, status: :created</code>
+          <code class="ruby">        @bucketlist = Bucketlist.create(name: params[:name],</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby">        else</code>
+          <code class="ruby">                                        created_by: current_user.id)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="29">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="4" data-linenumber="29">
+          <span class="hits">4</span>
           
-          <code class="ruby">          render json: @bucketlist.errors, status: :unprocessable_entity</code>
+          <code class="ruby">        if @bucketlist.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="covered" data-hits="3" data-linenumber="30">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">          render json: @bucketlist, status: :created</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="33">
-          
-          
-          <code class="ruby">      # PATCH/PUT /bucketlists/1.json</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="34">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      def update</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="35">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        @bucketlist = Bucketlist.find(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="36">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        if @bucketlist.update(bucketlist_params)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="37">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          render json: @bucketlist, status: 200</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
           <code class="ruby">          render json: @bucketlist.errors, status: :unprocessable_entity</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">      # PATCH/PUT /bucketlists/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def update</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="38">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        @bucketlist = Bucketlist.find(params[:id])</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="39">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        if @bucketlist.update(bucketlist_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="40">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          render json: @bucketlist, status: 200</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">          render json: @bucketlist.errors, status: :unprocessable_entity</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
           
           
+          <code class="ruby">        end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
           <code class="ruby">      # DELETE /bucketlists/1.json</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
           <code class="ruby">      def destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="45">
+        <li class="covered" data-hits="1" data-linenumber="48">
           <span class="hits">1</span>
           
           <code class="ruby">        @bucketlist.destroy</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="46">
+        <li class="covered" data-hits="1" data-linenumber="49">
           <span class="hits">1</span>
           
           <code class="ruby">        head :no_content</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="48">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="49">
+        <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
           <code class="ruby">      private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="54">
           <span class="hits">1</span>
           
           <code class="ruby">      def set_bucketlist</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="52">
+        <li class="covered" data-hits="9" data-linenumber="55">
           <span class="hits">9</span>
           
-          <code class="ruby">        @bucketlist = Bucketlist.find_by_id(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="9" data-linenumber="53">
-          <span class="hits">9</span>
-          
-          <code class="ruby">        if @bucketlist.blank?</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="54">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          msg = { error: &quot;Bucket list with id:#{params[:id]} does not exist&quot; }</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="55">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          render json: msg, status: :unprocessable_entity</code>
+          <code class="ruby">        @bucketlist = Bucketlist.where(id: params[:id],</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="56">
           
           
+          <code class="ruby">                                       created_by: current_user.id)[0]</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="57">
+          <span class="hits">9</span>
+          
+          <code class="ruby">        if @bucketlist.blank?</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="58">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          msg = { error: &quot;You dont have a bucket list with id:#{params[:id]}&quot; }</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="59">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          render json: msg, status: :unprocessable_entity</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
           <code class="ruby">        end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="59">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      def bucketlist_params</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="60">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        params.require(:bucketlist).permit(:name)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
@@ -1217,58 +1217,82 @@
         <li class="covered" data-hits="1" data-linenumber="63">
           <span class="hits">1</span>
           
-          <code class="ruby">      def paginater</code>
+          <code class="ruby">      def bucketlist_params</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="64">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="64">
+          <span class="hits">4</span>
           
-          <code class="ruby">        @limit = params[:limit].to_i</code>
+          <code class="ruby">        params.require(:bucketlist).permit(:name)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="65">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        @limit = 20 if @limit &lt; 1</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="66">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        @page = params[:page].to_i</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="67">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        @page = 1 if @page &lt; 1</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="68">
-          <span class="hits">2</span>
-          
-          <code class="ruby">        @offset = @limit * (@page - 1)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="67">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def paginater</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="68">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @limit = params[:limit].to_i</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="69">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @limit = 20 if @limit &lt; 1</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="70">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @page = params[:page].to_i</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="71">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @page = 1 if @page &lt; 1</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="72">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        @offset = @limit * (@page - 1)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby">end</code>
@@ -1283,8 +1307,8 @@
     <h3>app/controllers/api/v1/items_controller.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>32</b> relevant lines. 
-      <span class="green"><b>32</b> lines covered</span> and
+      <b>35</b> relevant lines. 
+      <span class="green"><b>35</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -1361,310 +1385,346 @@
         <li class="covered" data-hits="3" data-linenumber="12">
           <span class="hits">3</span>
           
-          <code class="ruby">        render json: @items</code>
+          <code class="ruby">        if stale?(etag: @items.all,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">                  last_modified: @items.maximum(:updated_at))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="covered" data-hits="3" data-linenumber="14">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">          render json: @items</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">      # GET /items/1.json</code>
+          <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="16">
           
-          <code class="ruby">      def show</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="17">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="17">
           
-          <code class="ruby">        render json: @item</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">      # GET /items/1.json</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="19">
+        <li class="covered" data-hits="1" data-linenumber="19">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby"></code>
+          <code class="ruby">      def show</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="20">
+        <li class="covered" data-hits="1" data-linenumber="20">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">      # POST /items.json</code>
+          <code class="ruby">        @item = @item = Item.find(params[:id])</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">      def create</code>
+          <code class="ruby">        render json: @item if stale? @item</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="22">
-          <span class="hits">3</span>
+        <li class="never" data-hits="" data-linenumber="22">
           
-          <code class="ruby">        @item = Item.create(name: params[:name], done: false,</code>
+          
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">                            bucketlist_id: params[:bucketlist_id])</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">      # POST /items.json</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def create</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="26">
           <span class="hits">3</span>
           
-          <code class="ruby">        if @item.save</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="26">
-          <span class="hits">2</span>
-          
-          <code class="ruby">          render json: @item, status: :created</code>
+          <code class="ruby">        @item = Item.create(name: params[:name], done: false,</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">        else</code>
+          <code class="ruby">                            bucketlist_id: params[:bucketlist_id])</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="28">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="28">
           
-          <code class="ruby">          render json: @item.errors, status: :unprocessable_entity</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="covered" data-hits="3" data-linenumber="29">
+          <span class="hits">3</span>
           
-          
-          <code class="ruby">        end</code>
+          <code class="ruby">        if @item.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="covered" data-hits="2" data-linenumber="30">
+          <span class="hits">2</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">          render json: @item, status: :created</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby">      # PATCH/PUT /items/1.json</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="33">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      def update</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="34">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        @item = Item.find(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="4" data-linenumber="35">
-          <span class="hits">4</span>
-          
-          <code class="ruby">        if @item.update(item_params)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="36">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          render json: @item, status: 200</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
           <code class="ruby">        else</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
+        <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
           <code class="ruby">          render json: @item.errors, status: :unprocessable_entity</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">      # PATCH/PUT /items/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def update</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="38">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        @item = Item.find(params[:id])</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="39">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        if @item.update(item_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="40">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          render json: @item, status: 200</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="41">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        else</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">      # DELETE /items/1.json</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="43">
+        <li class="covered" data-hits="1" data-linenumber="42">
           <span class="hits">1</span>
           
-          <code class="ruby">      def destroy</code>
+          <code class="ruby">          render json: @item.errors, status: :unprocessable_entity</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        @item.destroy</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="45">
-          <span class="hits">1</span>
-          
-          <code class="ruby">        head :no_content</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="47">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="48">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      private</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      def set_item</code>
-        </li>
-      
-        <li class="covered" data-hits="9" data-linenumber="51">
-          <span class="hits">9</span>
-          
-          <code class="ruby">        @item = Item.find_by_id(params[:id])</code>
-        </li>
-      
-        <li class="covered" data-hits="9" data-linenumber="52">
-          <span class="hits">9</span>
-          
-          <code class="ruby">        if @item.blank?</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="53">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          msg = { error: &quot;Item with id:#{params[:id]} does not exist&quot; }</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="54">
-          <span class="hits">3</span>
-          
-          <code class="ruby">          render json: msg, status: :unprocessable_entity</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="57">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby">      # DELETE /items/1.json</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
           <span class="hits">1</span>
           
-          <code class="ruby">      def item_params</code>
+          <code class="ruby">      def destroy</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="59">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="1" data-linenumber="48">
+          <span class="hits">1</span>
           
-          <code class="ruby">        params.require(:item).permit(:name, :done)</code>
+          <code class="ruby">        @item.destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="60">
+        <li class="covered" data-hits="1" data-linenumber="49">
+          <span class="hits">1</span>
+          
+          <code class="ruby">        head :no_content</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">      end</code>
         </li>
       
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="54">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def set_item</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="55">
+          <span class="hits">9</span>
+          
+          <code class="ruby">        @item = Item.where(bucketlist_id: params[:bucketlist_id],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby">                           id: params[:id])[0]</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="57">
+          <span class="hits">9</span>
+          
+          <code class="ruby">        if @item.blank?</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="58">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          msg = &quot;Item with id:#{params[:id]} doesnt exist in this bucketlist&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="59">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          msg = { error: msg }</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="60">
+          <span class="hits">3</span>
+          
+          <code class="ruby">          render json: msg, status: :unprocessable_entity</code>
+        </li>
+      
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">        end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="62">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="64">
+          <span class="hits">1</span>
+          
+          <code class="ruby">      def item_params</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="65">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        params.require(:item).permit(:name, :done)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">end</code>
@@ -1760,14 +1820,14 @@
           <code class="ruby">  def current_user</code>
         </li>
       
-        <li class="covered" data-hits="58" data-linenumber="13">
-          <span class="hits">58</span>
+        <li class="covered" data-hits="67" data-linenumber="13">
+          <span class="hits">67</span>
           
           <code class="ruby">    if decoded_auth_token</code>
         </li>
       
-        <li class="covered" data-hits="53" data-linenumber="14">
-          <span class="hits">53</span>
+        <li class="covered" data-hits="62" data-linenumber="14">
+          <span class="hits">62</span>
           
           <code class="ruby">      @current_user ||= User.find(decoded_auth_token[&quot;user_id&quot;])</code>
         </li>
@@ -1874,8 +1934,8 @@
           <code class="ruby">  def decoded_auth_token</code>
         </li>
       
-        <li class="covered" data-hits="111" data-linenumber="32">
-          <span class="hits">111</span>
+        <li class="covered" data-hits="120" data-linenumber="32">
+          <span class="hits">120</span>
           
           <code class="ruby">    @decoded_auth_token ||= AuthToken.decode(http_auth_header)</code>
         </li>
@@ -2063,13 +2123,13 @@
         <li class="covered" data-hits="2" data-linenumber="7">
           <span class="hits">2</span>
           
-          <code class="ruby">  scope :completed, -&gt; { where(&quot;done IS ?&quot;, true) }</code>
+          <code class="ruby">  scope :completed, -&gt; { where(&quot;done = ?&quot;, TRUE) }</code>
         </li>
       
         <li class="covered" data-hits="2" data-linenumber="8">
           <span class="hits">2</span>
           
-          <code class="ruby">  scope :uncompleted, -&gt; { where(&quot;done IS ?&quot;, false) }</code>
+          <code class="ruby">  scope :uncompleted, -&gt; { where(&quot;done = ?&quot;, FALSE) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
