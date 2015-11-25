@@ -6,12 +6,12 @@ gem "active_model_serializers"
 gem "jwt"
 gem "rack-cors", require: "rack/cors"
 gem "bcrypt"
+gem "spring"
 
 group :development, :test do
   gem "rspec-rails"
   gem "sqlite3"
   gem "pry"
-  gem "spring"
   gem "factory_girl_rails"
   gem "database_cleaner"
   gem "codeclimate-test-reporter", require: nil

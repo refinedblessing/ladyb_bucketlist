@@ -4,6 +4,6 @@ class Item < ActiveRecord::Base
   validates :name, presence: true
   validates :bucketlist, presence: true
 
-  scope :completed, -> { where("done IS ?", true) }
-  scope :uncompleted, -> { where("done IS ?", false) }
+  scope :completed, -> { where("done = ?", TRUE) }
+  scope :uncompleted, -> { where("done = ?", FALSE) }
 end
