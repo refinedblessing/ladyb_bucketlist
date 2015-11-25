@@ -1,0 +1,455 @@
+FORMAT: 1A
+HOST: http://ladybucketlist.herokuapp.com
+
+# Bucket List API
+
+Bucketlist API is an API that allows consumers to signup, create bucketlists and add items to their lists.
+
+This API was done by Miss Blessing Ebowe as part of the Andela program requirements.
+
+## User Sign up [/auth/signup]
+
+### Sign up or Register on this application [POST]
+
+In other to have access to the services rendered by the API, you have to sign up, with an email and password, name is optional.
+Once you sign up for the first time you are automatically logged in, and henceforth all you have to do is log in with your email and password.You get a response containing your token which will be included in the Authorization header to access other endpoints in the API.
+
++ Request (application/json)
+
+        {
+            "name": "Blessing Ebowe"
+            "email": "blessing@gmail.com",
+            "password": "password"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6ImVtYWlsMkBnbWFpbC5jb20iLCJleHAiOjE0NDg1NTIzMzN9.EH70-vAUR0OSafG4kfzz47vI5ifzJdwkcunhQXPcaw0A_9A_fsiRRqhrNN4-4ho-EWiGY4wCAoOzid3JMUpgNQ"
+        }
+
+## User Log in [/auth/login]
+
+### Log in, on this application [POST]
+
+If you have signed up, you can always login with your email and password and also once token is expired you need to log in, when you login successfully you json response containing your token, which should be included in your Auhtorization Header to access other endpoints on the API.
+
++ Request (application/json)
+
+        {
+            "email": "blessing@gmail.com",
+            "password": "password"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoyLCJlbWFpbCI6ImVtYWlsMkBnbWFpbC5jb20iLCJleHAiOjE0NDg1NTIzMzN9.EH70-vAUR0OSafG4kfzz47vI5ifzJdwkcunhQXPcaw0A_9A_fsiRRqhrNN4-4ho-EWiGY4wCAoOzid3JMUpgNQ"
+        }
+
+## User Log out [/auth/logout]
+
+### Log out of application [GET]
+
+To log out of this application, you have to replace 'token' with valid token supplied after log in or sign up in the Header, else you will get a NotAuthenticatedError(You are not Authorized) or an AuthenticationTimeoutError(Token has expired).
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+                
++ Response 200 (application/json)
+
+        {
+            "message": "You are logged out."
+        }
+
+## Bucketlist Creation [/bucketlists]
+
+### Create a Bucketlist [POST]
+
+To create a bucketlist you have to include valid token in Authorization header, and supply a name for your bucketlist, else you will get an Invalid name Error.
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "name": "Myfirstbucket"
+                }
+        
++ Response 201 (application/json)
+
+        {
+          "bucketlist": {
+            "id": 1,
+            "name": "Myfirstbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 04:43 PM",
+            "date_modified": "November 25, 2015 04:43 PM"
+          }
+        }
+        
+### View all bucketlists created by you [GET]
+
+You can view all bucketlists you have created, by default you get the first 20 bucketlists i.e page: 1, limit: 20. To get a specific number of bucketlists or a certain page you can make use of the page and limit params.
+
+page: 2, limit: 10 will give you the the second set of ten bucketlists created by you.
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "limit": 4
+                }
+        
++ Response 200 (application/json)
+
+        {
+          "bucketlist": {
+            "id": 1,
+            "name": "Myfirstbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 04:43 PM",
+            "date_modified": "November 25, 2015 04:43 PM"
+          }
+        }
+
+        {
+          "bucketlist": {
+            "id": 2,
+            "name": "Mysecondbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 05:43 PM",
+            "date_modified": "November 25, 2015 05:43 PM"
+          }
+        }
+        
+        {
+          "bucketlist": {
+            "id": 3,
+            "name": "Myfirstbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 03:43 PM",
+            "date_modified": "November 25, 2015 03:43 PM"
+          }
+        }
+
+        {
+          "bucketlist": {
+            "id": 4,
+            "name": "Mysecondbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 06:43 PM",
+            "date_modified": "November 25, 2015 06:43 PM"
+          }
+        }
+
+### Search for a bucket list by name.[GET]
+
+You can search for a bucket list with its full name or a single letter, by supplying a 'q' param.
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "q": "My"
+                }
+        
++ Response 200 (application/json)
+
+        {
+          "bucketlist": {
+            "id": 1,
+            "name": "Myfirstbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 04:43 PM",
+            "date_modified": "November 25, 2015 04:43 PM"
+          }
+        }
+
+        {
+          "bucketlist": {
+            "id": 2,
+            "name": "Mysecondbucket",
+            "all_items": [],
+            "created_by": "Blessing Ebowe",
+            "date_created": "November 25, 2015 05:43 PM",
+            "date_modified": "November 25, 2015 05:43 PM"
+          }
+        }
+
+## Bucketlist Management [/bucketlists/<bucketlist_id>]
+
+All actions here act on a specific bucketlist, and all require an Authorization Header containing the token supplied after log in or sign up, else you will get a NotAuthenticatedError(You are not Authorized) or an AuthenticationTimeoutError(Token has expired).
+You are also required to supply the ID of the bucketlist you want to perform actions on.
+If incorrect Buckelist id is supplied you will get an error message(You dont have a bucket list with id:<bucketlist_id>).
+
+### View a Bucketlist [GET]
+
+To view a specific bucket list.
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist you want to view
+ 
++ Request (application/json)
+ 
+    + Headers
+
+                Authorization: <token>
+
++ Response 200 (application/json)
+
+        {
+            "bucketlist": {
+                "id": 1,
+                "name": "Myfirstbucket",
+                "all_items": [],
+                "created_by": "Blessing Ebowe",
+                "date_created": "November 25, 2015 04:43 PM",
+                "date_modified": "November 25, 2015 04:43 PM"
+            }
+        }
+        
+
+### Update a Bucketlist [PUT]
+
+Only the name of a bucketlist can be updated, a bucketlist name param has to be supplied to do this, if param supplied is invalid the old name is retained.
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist you want to view
+
++ Request (application/json)
+ 
+    + Headers
+
+                Authorization: <token>
+
+
+    + Body
+    
+                {
+                    "bucketlist": {
+                        "name": "Editedbucket"
+                    }
+                }
++ Response 200 (application/json)
+
+        {
+            "bucketlist": {
+                "id": 1,
+                "name": "Editedbucket",
+                "all_items": [],
+                "created_by": "Blessing Ebowe",
+                "date_created": "November 25, 2015 04:43 PM",
+                "date_modified": "November 25, 2015 06:24 PM"
+            }
+        }
+        
+### Delete a Bucketlist [DELETE]
+
+When a bucket list is deleted all associated items are deleted, and a 204 no content response is gotten
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist you want to view
+
++ Request (application/json)
+ 
+    + Headers
+
+                Authorization: <token>
+
++ Response 204
+
+## Managing Items in a Bucket list. [/bucketlists/<bucketlist_id>/items]
+
+To perform actions on Items it has to be done under a specific bucketlist.
+All actions here act on a specific bucketlist, and all require an Authorization Header containing the token supplied after log in or sign up, else you will get a NotAuthenticatedError(You are not Authorized) or an AuthenticationTimeoutError(Token has expired).
+You are also required to supply the ID of the bucketlist you want to perform actions on its items
+
+### Add an item to a Bucketlist [POST]
+
+Adding new items to a bucket list. You only need to supply a name parameter.
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist in which item will reside
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "name": "Myfirstitem"
+                }
+        
++ Response 201 (application/json)
+
+        {
+            "item": {
+                "id": 1,
+                "name": "Myfirstitem",
+                "done": false,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+        
+### View all items in a bucket list [GET]
+
+To view all items in bucket list with id = bucketlist_id
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist in which items reside
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
++ Response 200 (application/json)
+
+        {
+            "item": {
+                "id": 1,
+                "name": "Myfirstitem",
+                "done": false,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+        
+        {
+            "item": {
+                "id": 2,
+                "name": "Seconditem",
+                "done": done,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+
+### Search for items by their done status.[GET]
+
+To view items where done is true or false you can supply a 'done' param in the body with either 'true' or 'false', if you enter something else you will get all items
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist in which items reside
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "done": "true"
+                }
+        
++ Response 200 (application/json)
+
+        {
+            "item": {
+                "id": 1,
+                "name": "Seconditem",
+                "done": true,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+            
+## Managing an Item in a bucket list [/bucketlists/<bucketlist_id>/items/<item_id>]
+
+All actions here act on a specific item in a bucket list.
+
+You are required to supply the ID of the bucketlist and the ID of the item you want to perform actions on.
+
+If incorrect Buckelist ID is supplied you will get an error message(You dont have a bucket list with id:<bucketlist_id>).
+
+If incorrect Item ID is supplied you will get an error message(Item with id:<item_id> doesnt exist in this bucketlist)
+        
+### Update an item in a bucket list. [PUT]
+
+You can update an items name, if invalid name is given the old name remains
+You can also update the done status from false to true or the other way, if an invalid done status is supplied, it defaults to false.
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist in which item resides
+   + item_id (integer) - ID of item to be updated
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+
+    + Body
+    
+                {
+                    "item": {
+                        "name": "Editeditem"
+                        "done": "true"
+                    }
+                }
+        
++ Response 200 (application/json)
+
+        {
+            "item": {
+                "id": 1,
+                "name": "Editeditem",
+                "done": true,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+        
+### Delete an Item in a bucket list [DELETE]
+
+An item can be deleted from a bucket list, when the correct bucket list id and item id are supplied and also a valid token in the Authorization header.
+A 204 No content response is received after a successful delete.
+
++ Parameters
+   + bucketlist_id (integer) - ID of the bucketlist in which item resides
+   + item_id (integer) - ID of item to be updated
+
++ Request (application/json)
+
+    + Headers
+
+                Authorization: <token>
+        
++ Response 204
+
