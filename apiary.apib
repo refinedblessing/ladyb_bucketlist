@@ -238,7 +238,7 @@ To view a specific bucket list.
 Only the name of a bucketlist can be updated, a bucketlist name param has to be supplied to do this, if param supplied is invalid the old name is retained.
 
 + Parameters
-   + bucketlist_id (integer) - ID of the bucketlist you want to view
+   + bucketlist_id (integer) - ID of the bucketlist you want to update
 
 + Request (application/json)
  
@@ -272,7 +272,7 @@ Only the name of a bucketlist can be updated, a bucketlist name param has to be 
 When a bucket list is deleted all associated items are deleted, and a 204 no content response is gotten
 
 + Parameters
-   + bucketlist_id (integer) - ID of the bucketlist you want to view
+   + bucketlist_id (integer) - ID of the bucketlist you want to delete
 
 + Request (application/json)
  
@@ -443,7 +443,7 @@ A 204 No content response is received after a successful delete.
 
 + Parameters
    + bucketlist_id (integer) - ID of the bucketlist in which item resides
-   + item_id (integer) - ID of item to be updated
+   + item_id (integer) - ID of item to be deleted
 
 + Request (application/json)
 
