@@ -1,6 +1,7 @@
 # Controller from which all other controllers inherit from.
 class ApplicationController < ActionController::API
   include ActionController::Serialization
+  include BucketlistSetter
 
   rescue_from NotAuthenticatedError do
     render json: { error: "You are not Authorized" }, status: :unauthorized

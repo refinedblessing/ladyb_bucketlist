@@ -8,10 +8,10 @@ module Api
       # GET /bucketlists.json
       def index
         paginater
-        @bucketlists = current_user.bucketlists
+        @bucketlists = current_user.bucketlists.with_items
         @bucketlists = @bucketlists.search(params[:q]) if params[:q]
         @bucketlists = @bucketlists.limit(@limit).offset(@offset)
-        if stale?(etag: @bucketlists.all,
+        if stale?(etag: @bucketlists,
                   last_modified: @bucketlists.maximum(:updated_at))
           render json: @bucketlists
         end
@@ -50,15 +50,6 @@ module Api
       end
 
       private
-
-      def set_bucketlist
-        @bucketlist = Bucketlist.where(id: params[:id],
-                                       created_by: current_user.id)[0]
-        if @bucketlist.blank?
-          msg = { error: "You dont have a bucket list with id:#{params[:id]}" }
-          render json: msg, status: :unprocessable_entity
-        end
-      end
 
       def bucketlist_params
         params.require(:bucketlist).permit(:name)

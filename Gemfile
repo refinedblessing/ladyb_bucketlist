@@ -1,4 +1,5 @@
 source "https://rubygems.org"
+ruby "2.2.3"
 
 gem "rails", "4.2.4"
 gem "rails-api"
@@ -16,6 +17,7 @@ group :development, :test do
   gem "database_cleaner"
   gem "codeclimate-test-reporter", require: nil
   gem "simplecov", require: false
+  gem "coveralls", require: false
 end
 
 group :production do

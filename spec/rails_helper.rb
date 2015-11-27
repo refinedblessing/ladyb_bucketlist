@@ -7,6 +7,8 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 require "simplecov"
 SimpleCov.start "rails"
+require "coveralls"
+Coveralls.wear!
 require "spec_helper"
 require "rspec/rails"
 require "factory_girl_rails"
