@@ -102,6 +102,8 @@ You can view all bucketlists you have created, by default you get the first 20 b
 
 page: 2, limit: 10 will give you the the second set of ten bucketlists created by you.
 
+You can search for a bucket list with its full name or a single letter, by supplying a 'q' param.
+
 + Request (application/json)
 
     + Headers
@@ -112,6 +114,7 @@ page: 2, limit: 10 will give you the the second set of ten bucketlists created b
     
                 {
                     "limit": 4
+                    "q": "My"
                 }
         
 + Response 200 (application/json)
@@ -159,47 +162,7 @@ page: 2, limit: 10 will give you the the second set of ten bucketlists created b
             "date_modified": "November 25, 2015 06:43 PM"
           }
         }
-
-### Search for a bucket list by name.[GET]
-
-You can search for a bucket list with its full name or a single letter, by supplying a 'q' param.
-
-+ Request (application/json)
-
-    + Headers
-
-                Authorization: <token>
-
-    + Body
-    
-                {
-                    "q": "My"
-                }
         
-+ Response 200 (application/json)
-
-        {
-          "bucketlist": {
-            "id": 1,
-            "name": "Myfirstbucket",
-            "all_items": [],
-            "created_by": "Blessing Ebowe",
-            "date_created": "November 25, 2015 04:43 PM",
-            "date_modified": "November 25, 2015 04:43 PM"
-          }
-        }
-
-        {
-          "bucketlist": {
-            "id": 2,
-            "name": "Mysecondbucket",
-            "all_items": [],
-            "created_by": "Blessing Ebowe",
-            "date_created": "November 25, 2015 05:43 PM",
-            "date_modified": "November 25, 2015 05:43 PM"
-          }
-        }
-
 ## Bucketlist Management [/bucketlists/<bucketlist_id>]
 
 All actions here act on a specific bucketlist, and all require an Authorization Header containing the token supplied after log in or sign up, else you will get a NotAuthenticatedError(You are not Authorized) or an AuthenticationTimeoutError(Token has expired).
@@ -324,41 +287,6 @@ Adding new items to a bucket list. You only need to supply a name parameter.
 
 To view all items in bucket list with id = bucketlist_id
 
-+ Parameters
-   + bucketlist_id (integer) - ID of the bucketlist in which items reside
-
-+ Request (application/json)
-
-    + Headers
-
-                Authorization: <token>
-
-+ Response 200 (application/json)
-
-        {
-            "item": {
-                "id": 1,
-                "name": "Myfirstitem",
-                "done": false,
-                "bucketlist_id": 2,
-                "date_created": "November 25, 2015 09:21 AM",
-                "date_modified": "November 25, 2015 09:21 AM"
-            }
-        }
-        
-        {
-            "item": {
-                "id": 2,
-                "name": "Seconditem",
-                "done": done,
-                "bucketlist_id": 2,
-                "date_created": "November 25, 2015 09:21 AM",
-                "date_modified": "November 25, 2015 09:21 AM"
-            }
-        }
-
-### Search for items by their done status.[GET]
-
 To view items where done is true or false you can supply a 'done' param in the body with either 'true' or 'false', if you enter something else you will get all items
 
 + Parameters
@@ -375,12 +303,23 @@ To view items where done is true or false you can supply a 'done' param in the b
                 {
                     "done": "true"
                 }
-        
+                
 + Response 200 (application/json)
 
         {
             "item": {
                 "id": 1,
+                "name": "Myfirstitem",
+                "done": true,
+                "bucketlist_id": 2,
+                "date_created": "November 25, 2015 09:21 AM",
+                "date_modified": "November 25, 2015 09:21 AM"
+            }
+        }
+        
+        {
+            "item": {
+                "id": 2,
                 "name": "Seconditem",
                 "done": true,
                 "bucketlist_id": 2,
@@ -452,4 +391,3 @@ A 204 No content response is received after a successful delete.
                 Authorization: <token>
         
 + Response 204
-
