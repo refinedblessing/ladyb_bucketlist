@@ -19,7 +19,9 @@ module Api
       # GET /items/1.json
       def show
         @item = @bucketlist.items.find_by_id(params[:id])
-        render json: @item if stale? @item
+        if stale?(etag: @item, last_modified: @item.updated_at)
+          render json: @item
+        end
       end
 
       # POST /items.json

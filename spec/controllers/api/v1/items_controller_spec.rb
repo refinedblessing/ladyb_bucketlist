@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Api::V1::ItemsController, type: :controller do
-  before do
+  before :each do
     @user = FactoryGirl.create(:authenticated_user)
     token = AuthToken.encode(user_id: @user.id, email: @user.email)
     request.headers[:Authorization] = "#{token}"
@@ -12,6 +12,10 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
     @new_attributes = FactoryGirl.attributes_for(:true_item)
   end
 
+  after :each do
+    DatabaseCleaner.clean
+  end
+
   describe "GET #index" do
     it "assigns all items as @items" do
       item = Item.create! @valid_attributes
@@ -20,7 +24,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       expect(assigns(:items)).to eq([item, item2])
     end
 
-    it "returns only done items when params[done] is true" do
+    it "returns only completed items when params[done] is true" do
       Item.create! @valid_attributes
       item2 = Item.create! @new_attributes
       params = { done: "true", bucketlist_id: @bucketlist.id }
@@ -28,7 +32,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
       expect(assigns(:items)).to eq([item2])
     end
 
-    it "returns only done items when params[done] is true" do
+    it "returns only uncompleted items when params[done] is false" do
       item = Item.create! @valid_attributes
       Item.create! @new_attributes
       params = { done: "false", bucketlist_id: @bucketlist.id }
@@ -58,9 +62,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
     end
 
     it "should respond with a 422 for incorrect id" do
-      item = Item.create! @valid_attributes
       get :show, bucketlist_id: @bucketlist.id, id: 15
-      expect(assigns(:item)).not_to eq(item)
       expect(response.status).to eq 422
     end
   end
@@ -68,8 +70,9 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Item" do
-        post :create, bucketlist_id: @bucketlist.id
-        expect(Bucketlist.all.count).not_to be 0
+        params = @valid_attributes
+        post :create, params
+        expect(Item.all.count).to be 1
       end
 
       it "assigns a newly created item as @item" do
@@ -79,7 +82,7 @@ RSpec.describe Api::V1::ItemsController, type: :controller do
         expect(assigns(:item)).to be_persisted
       end
 
-      it "redirects to the created item" do
+      it "responds with 201 when it successfully creates an item" do
         params = @valid_attributes
         post :create, params
         expect(response.status).to be 201

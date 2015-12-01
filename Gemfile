@@ -8,6 +8,7 @@ gem "jwt"
 gem "rack-cors", require: "rack/cors"
 gem "bcrypt"
 gem "spring"
+gem "newrelic_rpm"
 
 group :development, :test do
   gem "rspec-rails"

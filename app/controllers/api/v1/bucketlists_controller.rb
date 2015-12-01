@@ -19,7 +19,9 @@ module Api
 
       # GET /bucketlists/1.json
       def show
-        render json: @bucketlist if stale? @bucketlist
+        if stale?(etag: @bucketlist, last_modified: @bucketlist.updated_at)
+          render json: @bucketlist
+        end
       end
 
       # POST /bucketlists.json

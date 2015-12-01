@@ -33,7 +33,7 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
       expect(assigns(:bucketlist)).to eq(bucketlist)
     end
 
-    it "shows an error message for wrong item id" do
+    it "shows an error message for wrong bucketlist id" do
       Bucketlist.create! @bucketlist
       get :show, id: 15
       expect(json["bucketlist"]).to be nil
@@ -41,10 +41,11 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
       expect(json["error"]).to eq "You dont have a bucket list with id:15"
     end
 
-    it "should not return an item when wrong id is entered" do
+    it "should not return a bucketlist when wrong id is entered" do
       bucketlist = Bucketlist.create! @bucketlist
       get :show, id: 15
       expect(assigns(:bucketlist)).not_to eq(bucketlist)
+      expect(assigns(:bucketlist)).to be nil
     end
 
     it "should respond with a 422 for incorrect id" do
@@ -57,7 +58,7 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
     context "with valid params" do
       it "creates a new Bucketlist" do
         post :create, @bucketlist
-        expect(Bucketlist.all.count).not_to be 0
+        expect(Bucketlist.all.count).to be 1
       end
 
       it "assigns a newly created bucketlist as @bucketlist" do
@@ -66,16 +67,16 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
         expect(assigns(:bucketlist)).to be_persisted
       end
 
-      it "redirects to the created bucketlist" do
+      it "responds with 201 after creating bucketlist" do
         post :create, @bucketlist
         expect(response).to have_http_status 201
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved bucketlist as @bucketlist" do
+      it "should not save bucketlist" do
         post :create, @invalid_bucket
-        expect(assigns(:bucketlist)).to be_a_new(Bucketlist)
+        expect(assigns(:bucketlist)).not_to be_persisted
       end
     end
   end
@@ -95,7 +96,7 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
         expect(assigns(:bucketlist)).to eq(bucketlist)
       end
 
-      it "redirects to the bucketlist" do
+      it "responds with a status of 200" do
         bucketlist = Bucketlist.create! @bucketlist
         put :update, id: bucketlist.to_param, bucketlist: @bucketlist
         expect(response).to have_http_status 200
@@ -103,10 +104,11 @@ RSpec.describe Api::V1::BucketlistsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns the bucketlist as @bucketlist" do
+      it "retains the old bucketlist and responds with a 422" do
         bucketlist = Bucketlist.create! @bucketlist
         put :update, id: bucketlist.to_param, bucketlist: @invalid_bucket
         expect(assigns(:bucketlist)).to eq(bucketlist)
+        expect(response).to have_http_status 422
       end
     end
   end
