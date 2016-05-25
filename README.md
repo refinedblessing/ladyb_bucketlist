@@ -8,7 +8,7 @@ Rails API for a bucket list service.
 
 Bucketlist API is an API that allows consumers to signup, create bucketlists and add items to their lists.
 
-It is hosted on Heroku ( http://ladybucketlist.herokuapp.com/ )
+It can be tested on Apiary ( http://docs.ladybbucketlist.apiary.io/# )
 
 This API was done by Miss Blessing Ebowe as part of the Andela program requirements.
 
